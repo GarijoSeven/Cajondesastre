@@ -10,7 +10,7 @@
     <div class="container-login">
         <h1>Login</h1>
 
-        <form action="/backend/login.php" method="post">
+        <form id="form-login">
             <label>Email:</label>
             <input type="email" id="email" name="email" required>
 
@@ -20,6 +20,35 @@
             <input type="submit" value="Enviar"> 
         </form>
 
+        <div id="mensaje"></div>
     </div>
+
+    <script>
+        document.getElementById('form-login').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const formData = new FormData(form);
+
+            try {
+                const res = await fetch('/backend/login.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await res.json();
+                const mensajeDiv = document.getElementById('mensaje');
+                mensajeDiv.textContent = data.mensaje;
+                mensajeDiv.style.color = data.ok ? 'green' : 'red';
+
+                if (data.ok) {
+                    form.reset();
+                }
+            } catch (error) {
+                document.getElementById('mensaje').textContent = 'Error en el servidor.';
+            }
+        });
+    </script>
+
 </body>
 </html>
