@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->store_result();
     if ($stmt->num_rows > 0) {
         $respuesta['mensaje'] = 'Este email ya está registrado, te llevamos a login.';
-        $respuesta['redirectUrl'] = '/frontend/register.html';
+        $respuesta['redirectUrl'] = '/register.html';
         echo json_encode($respuesta);
         exit;
     }
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()) {
         $respuesta['ok'] = true;
         $respuesta['mensaje'] = 'Usuario registrado correctamente.';
-        $respuesta['redirectUrl'] = '/frontend/register.html';
+        $respuesta['redirectUrl'] = '/register.html';
     } else {
         $respuesta['mensaje'] = 'Error al registrar usuario: ' . $conn->error;
     }
