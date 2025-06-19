@@ -46,10 +46,11 @@
                     mensajeDiv.textContent = '';
                 }, 5000);
 
-                if (data.ok) {
-                    form.reset();
-                    window.location.href = data.redirectUrl;
-                }
+                if (data.ok && data.redirectUrl) {
+                    setTimeout(() => {
+                        window.location.href = data.redirectUrl;
+                    }, 5000);
+            }
             } catch (error) {
                 document.getElementById('mensaje').textContent = 'Error en el servidor.';
 
