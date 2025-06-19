@@ -41,11 +41,19 @@
                 mensajeDiv.textContent = data.mensaje;
                 mensajeDiv.style.color = data.ok ? 'green' : 'red';
 
+                setTimeout(() => {
+                    mensajeDiv.textContent = '';
+                }, 5000);
+
                 if (data.ok) {
                     form.reset();
                 }
             } catch (error) {
                 document.getElementById('mensaje').textContent = 'Error en el servidor.';
+
+                setTimeout(() => {
+                    mensajeDiv.textContent = '';
+                }, 5000);
             }
         });
     </script>
