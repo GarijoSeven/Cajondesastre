@@ -37,26 +37,25 @@
                 });
 
                 const data = await res.json();
-                console.log(data);
                 const mensajeDiv = document.getElementById('mensaje');
                 mensajeDiv.textContent = data.mensaje;
                 mensajeDiv.style.color = data.ok ? 'green' : 'red';
 
                 setTimeout(() => {
                     mensajeDiv.textContent = '';
-                }, 5000);
+                }, 3000);
 
                 if (data.ok && data.redirectUrl) {
                     setTimeout(() => {
                         window.location.href = data.redirectUrl;
-                    }, 5000);
+                    }, 3000);
             }
             } catch (error) {
                 document.getElementById('mensaje').textContent = 'Error en el servidor.';
 
                 setTimeout(() => {
                     mensajeDiv.textContent = '';
-                }, 5000);
+                }, 3000);
             }
         });
     </script>
