@@ -12,8 +12,6 @@ if ($conexion->connect_error) {
 
 }
 
-echo "Conexion exitosa";
-
 $conexion->close();
 
 ?>
