@@ -47,6 +47,7 @@
 
                 if (data.ok) {
                     form.reset();
+                    window.location.href = data.redirectUrl;
                 }
             } catch (error) {
                 document.getElementById('mensaje').textContent = 'Error en el servidor.';
