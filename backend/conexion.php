@@ -5,13 +5,11 @@ $usuario = "u693571033_seven";
 $password = "@Garijo9596";
 $database = "u693571033_cajondesastre";
 
-$conexion = new mysqli($servidor, $usuario, $password, $database);
+$conn = new mysqli($servidor, $usuario, $password, $database);
 
-if ($conexion->connect_error) {
-    die("La conexion ha fallado: " . $conexion->connect_error);
-
+if ($conn->connect_error) {
+    die("La conexión ha fallado: " . $conn->connect_error);
 }
 
-$conexion->close();
 
 ?>
