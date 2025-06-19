@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
     $stmt->store_result();
     if ($stmt->num_rows > 0) {
+        $respuesta['ok'] = true;
         $respuesta['mensaje'] = 'Este email ya está registrado, te llevamos a login.';
         $respuesta['redirectUrl'] = '/register.html';
         echo json_encode($respuesta);
